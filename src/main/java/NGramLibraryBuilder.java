@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class NGramLibraryBuilder  {
 
-    public class NGramMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+    public static class NGramMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 
         int noGram;
         @Override
@@ -56,7 +56,7 @@ public class NGramLibraryBuilder  {
     }
 
 
-    public class NGramReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public static class NGramReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
         @Override
         public void reduce(Text key,Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
